@@ -1,1 +1,30 @@
-# structure-aware-circuits
+# Dimension reduction with structure-aware quantum circuits for hybrid machine learning
+
+This repository implements a hybrid quantum-classical machine learning model that leverages tensor network decompositions for exponential dimensionality reduction. The quantum circuit component uses Schmidt decomposition to compress high-dimensional data before processing by a classical neural network.
+
+## Key Features
+- **Structure-aware quantum circuits**: Implements $k$-rank approximation via Schmidt decomposition
+- **Exponential compression**: Reduces $2^n$-dimensional inputs to $n$-dimensional outputs
+- **Hybrid architecture**: Combines quantum dimensionality reduction with classical neural networks
+- **Cross-validation**: Includes robust k-fold validation pipeline
+- **Visualization**: Generates publication-ready training plots
+
+## Files
+- `hybrid_model.py` hybrid machine learning model. It only depends on the following file
+  - only uses `scmidt_decomposition.py` which applies successive Schmidt decomposition to compute tensor decomposition of a vector and number of terms required in hybrdi model
+- `only_classical_head.....py` files for comparisons. They don't run quantum circuit
+- `schmidt_circuit_optimization.py` find a circuit for dataset not used in hybrid model.
+
+## Paper Reference
+This code implements the methods described in:  
+**"Dimension reduction with structure-aware quantum circuits for hybrid machine learning"**  
+*Ammar Daskin*  
+Department of Computer Engineering, Istanbul Medeniyet University  
+[arXiv link]() | [DOI]()
+
+## Requirements
+
+Install dependencies:
+```bash
+pip install torch pennylane numpy scikit-learn matplotlib seaborn
+```
