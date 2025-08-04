@@ -1,5 +1,12 @@
 # Dimension reduction with structure-aware quantum circuits for hybrid machine learning
 
+[![arXiv](https://img.shields.io/badge/arXiv-2508.00048-b31b1b.svg)](http://arxiv.org/abs/2508.00048)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/mit)
+
+Official implementation for the paper:  
+**"Dimension reduction with structure-aware quantum circuits for hybrid machine learning"**  
+*Ammar Daskin ([arXiv 2508.00048](https://arxiv.org/abs/2508.00048), Agust 2025.*
+
 This repository implements a hybrid quantum-classical machine learning model that leverages tensor network decompositions for exponential dimensionality reduction. The quantum circuit component uses Schmidt decomposition to compress high-dimensional data before processing by a classical neural network.
 
 ## Key Features
@@ -15,16 +22,23 @@ This repository implements a hybrid quantum-classical machine learning model tha
 - `only_classical_head.....py` files for comparisons. They don't run quantum circuit
 - `schmidt_circuit_optimization.py` find a circuit for dataset not used in hybrid model.
 
-## Paper Reference
-This code implements the methods described in:  
-**"Dimension reduction with structure-aware quantum circuits for hybrid machine learning"**  
-*Ammar Daskin*  
-Department of Computer Engineering, Istanbul Medeniyet University  
-[arXiv link]() | [DOI]()
-
 ## Requirements
 
 Install dependencies:
 ```bash
 pip install torch pennylane numpy scikit-learn matplotlib seaborn
 ```
+
+## Citation
+```bibtex
+@article{daskin2025dimension},
+  title={Dimension reduction with structure-aware quantum circuits for hybrid machine learning},
+  author={Daskin, Ammar},
+  journal={arXiv preprint arXiv:2508.00048},
+  year={2025},
+}
+```
+
+## License
+See [LICENSE](LICENSE) for details.
+
