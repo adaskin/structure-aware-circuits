@@ -5,7 +5,7 @@
 
 Official implementation for the paper:  
 **"Dimension reduction with structure-aware quantum circuits for hybrid machine learning"**  
-*Ammar Daskin ([arXiv 2508.00048](https://arxiv.org/abs/2508.00048), Agust 2025.*
+*Ammar Daskin ([arXiv 2508.00048](https://arxiv.org/abs/2508.00048), July 2025.*
 
 This repository implements a hybrid quantum-classical machine learning model that leverages tensor network decompositions for exponential dimensionality reduction. The quantum circuit component uses Schmidt decomposition to compress high-dimensional data before processing by a classical neural network.
 
