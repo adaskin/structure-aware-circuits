@@ -29,7 +29,49 @@ Install dependencies:
 pip install torch pennylane numpy scikit-learn matplotlib seaborn
 ```
 
+## Usage
+### 1. Data Preparation
+Implement dataset loading in `data_loaders.py` with the interface:
+```python
+def load_dataset(name: str) -> Tuple[np.ndarray, np.ndarray, int, int]:
+    # Returns: X, y, n_qubits, n_classes
+```
+
+### 2. Run Cross-Validation
+```python
+from hybrid_model import cross_validate
+
+# Load dataset
+X, y, n_qubits, n_classes = load_dataset("iris")
+
+# Run 5-fold cross-validation
+accuracies, losses = cross_validate(
+    X, y,
+    n_qubits=n_qubits,
+    n_classes=n_classes,
+    schmidt_threshold=0.3,    # Coefficient cutoff
+    hidden_dims=[64, 32],     # Classical NN architecture
+    epochs=200,               # Training epochs
+    lr=0.05,                  # Learning rate
+    k_folds=5,                # Cross-validation folds
+    dataset_name="iris"
+)
+```
+
+### 3. Generate Results Plots
+```python
+from hybrid_model import plot_cv_results
+
+plot_cv_results(accuracies, losses, "results_summary")
+```
+
+
+## Example Results
+![Cross-validation Results](figures/fig_cross_validation_summary_classical.png)
+
 ## Citation
+If you use this code in your research, please cite:
+
 ```bibtex
 @article{daskin2025dimension},
   title={Dimension reduction with structure-aware quantum circuits for hybrid machine learning},
