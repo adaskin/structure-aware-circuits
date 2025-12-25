@@ -104,10 +104,8 @@ class SchmidtQuantumCircuit(nn.Module):
         # x: [batch, features]
         # Process each sample individually
         ### return x.float() # for only classical
-        results = []
-        for sample in x:
-            results.append(torch.Tensor(self.qnode(sample)).float())
-        return torch.stack(results)
+        return self.qnode(x)
+        
 
 
 # -----------------------------------------------------------------------------
@@ -157,6 +155,8 @@ class HybridModel(nn.Module):
     def forward(self, x: torch.Tensor):
         # x: [batch, features]
         q_out = self.qc(x)
+        if isinstance(q_out, list):
+                q_out = torch.stack(q_out, dim=-1).to(torch.float32)
         return self.classical_net(q_out)
 
 
